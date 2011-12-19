@@ -1,4 +1,10 @@
 class Role < ChefBase
+  def initialize(attributes={})
+    attributes = { "name" => nil,
+                   "nodes_list" => [] }.merge(attributes)
+    super(attributes)
+  end
+
   def nodes
     [] # TODO
   end
