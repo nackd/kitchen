@@ -16,22 +16,22 @@ class Role < ChefBase
   end
 
   def node_list
-    [] # TODO
+    @node_list || []
   end
 
   def nodes
-    [] # TODO
+    @nodes || []
   end
 
   def available_roles
-    [] # TODO
+    @available_roles || []
   end
 
   def available_recipes
-    [] # TODO
+    @available_recipes || []
   end
 
   def extended_run_list
-    [] # TODO
+    @extended_run_list || []
   end
 end
