@@ -3,3 +3,4 @@
 = form_for [:admin, @role] do |f|
   = render :partial => "form", :locals => {:f => f}
   = submit_tag "Save"
+  = link_to "Delete", [:admin, @role], :method => :delete, :confirm => "Are you sure?"

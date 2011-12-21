@@ -2,7 +2,7 @@ class Admin::RolesController < ApplicationController
   before_filter :require_admin
 
   def index
-    @roles = Roles.all
+    @roles = Role.all
   end
 
   def new
@@ -27,5 +27,10 @@ class Admin::RolesController < ApplicationController
     params[:role].delete(:nodes)
     @role.update_attributes(params[:role])
     redirect_to role_path(@role)
+  end
+
+  def destroy
+    Role.delete(params[:id])
+    redirect_to admin_root_path
   end
 end
