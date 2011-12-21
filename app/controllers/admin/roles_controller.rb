@@ -11,7 +11,7 @@ class Admin::RolesController < ApplicationController
   end
 
   def create
-    params[:role][:nodes_list] = params[:role][:nodes].reject {|key,value| value == "0" }.keys
+    params[:role][:node_list] = params[:role][:nodes].reject {|key,value| value == "0" }.keys
     params[:role].delete(:nodes)
     @role = Role.create(params[:role])
     redirect_to role_path(@role)
@@ -24,7 +24,7 @@ class Admin::RolesController < ApplicationController
 
   def update
     @role = Role.find(params[:id])
-    params[:role][:nodes_list] = params[:role][:nodes].reject {|key,value| value == "0" }.keys
+    params[:role][:node_list] = params[:role][:nodes].reject {|key,value| value == "0" }.keys
     params[:role].delete(:nodes)
     @role.update_attributes(params[:role])
     redirect_to role_path(@role)

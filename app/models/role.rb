@@ -15,7 +15,7 @@ class Role < ChefBase
     super(attributes)
   end
 
-  def nodes_list
+  def node_list
     [] # TODO
   end
 
