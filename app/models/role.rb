@@ -20,7 +20,7 @@ class Role < ChefBase
   end
 
   def nodes
-    @nodes || []
+    Node.search("run_list:role\\[#{self.name}\\]")
   end
 
   def available_roles
