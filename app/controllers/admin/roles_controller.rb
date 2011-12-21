@@ -12,9 +12,8 @@ class Admin::RolesController < ApplicationController
 
   def create
     params[:role][:node_list] = params[:role][:nodes].reject {|key,value| value == "0" }.keys
-    params[:role].delete(:nodes)
     @role = Role.create(params[:role])
-    redirect_to role_path(@role)
+    redirect_to role_path(@role.name)
   end
 
   def edit
