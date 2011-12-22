@@ -33,6 +33,10 @@ class Node < ChefBase
     self.class.find(:all, :user => user)
   end
 
+  def self.search_by_role(name)
+    ChefAPI.search_nodes_by_role(name)
+  end
+
   def extended_run_list
     rl = []
     self.run_list.each{|x| rl << RunListItem.new(x)}

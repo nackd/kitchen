@@ -33,7 +33,7 @@ class Role < ChefBase
   def nodes(use_cache=true)
     return @nodes if @nodes and use_cache
     return [] if @name.blank?
-    @nodes = Node.search("role:#{@name}")
+    @nodes = Node.search_by_role(@name)
   end
 
   def available_roles
@@ -60,6 +60,6 @@ class Role < ChefBase
 
   def self.delete(name)
     super
-    Node.search("role:#{name}").each { |node| node.del_from_role_and_save(name) }
+    Node.search_by_role(name).each { |node| node.del_from_role_and_save(name) }
   end
 end
