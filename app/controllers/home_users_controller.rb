@@ -2,6 +2,8 @@ class HomeUsersController < ApplicationController
 
   def index
     @users = HomeUser.all
+    debugger
+    puts 1
   end
 
   def edit
